@@ -1,6 +1,9 @@
 library(httr)
 library(dplyr)
 
+#get the env varaibles
+source('env.R')
+
 #get access token
 get_token <- function(){
   #built de body request
