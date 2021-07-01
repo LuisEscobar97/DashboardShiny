@@ -1,11 +1,13 @@
 library(httr)
 library(dplyr)
 
-#get the env varaibles
-source('env.R')
+
 
 #get access token
 get_token <- function(){
+  #get the env varaibles
+  source('env.R')
+  
   #built de body request
   bodyy = list(
     grant_type = "client_credentials",

@@ -4,7 +4,7 @@ library(plotly)
 library(shinydashboard)
 library(dplyr)
 library(bslib)
-library(shinythemes)
+library(shinythemes) 
 library(thematic)
 
 #in this part is got the data to analize
