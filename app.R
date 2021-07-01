@@ -9,7 +9,7 @@ library(thematic)
 
 #in this part is got the data to analize
 
-my_theme <- bs_theme(bootswatch = "flatly",version = 4)
+my_theme <- bs_theme(bootswatch = "darkly",version = 4)
 # in this part is biult the UI of the dashboards
 #which cotanins 3 parts, title, sidebar & body
 #in this case is needed to use the shinydashboard lib 
@@ -18,6 +18,7 @@ ui <-navbarPage("FTCH"
                 ,collapsible = TRUE, 
                 #is added the theme with botswatch
                 theme = my_theme,
+                
                 #is espcified the fixed nav bar
                 position = c("fixed-top"),
                 #the tabpanel with all options of the dashboard
@@ -130,7 +131,7 @@ ui <-navbarPage("FTCH"
 )
 # Define server logic required to draw a histogram ----
 server <- function(session, input, output) {
-    
+    thematic::thematic_shiny()
     # Histogram of the Old Faithful Geyser Data ----
     # with requested number of bins
     # This expression that generates a histogram is wrapped in a call
