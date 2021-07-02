@@ -44,27 +44,29 @@ get_content_t <- function(response){
 #function to extrac and tranform data from get content response to data freme
 get_tCard_df <- function(content){
       #Forma real de como pasar el response de JSOn primero a un date frame sin estructura y luego de ese mismo
-    dataFrameAux <- as.data.frame(t(sapply(content$value, c)))
+    dataFrameAux5 <- as.data.frame(t(sapply(content$value, c)))
       #dataFrame pasar a un data frame con las estructura correcta para poder graficar datos
     dataFrameTCARDS <-
       data.frame(
-        id = unlist(lapply(dataFrameAux$ID, c)),
-        TCard = unlist(lapply(dataFrameAux$Tcard, c)),
-        colaborador= unlist(lapply(dataFrameAux$colaborador, c)),
-        correo_colaborador=unlist(lapply(dataFrameAux$CorreoCol, c)),
-        no_SAP_col=unlist(lapply(dataFrameAux$N_x002e_SAPColaborador, c)),
-        coach = unlist(lapply(dataFrameAux$Evaluador, c)),
-        correo_coach=unlist(lapply(dataFrameAux$CorreoCoach, c)),
-        no_SAP_coach=unlist(lapply(dataFrameAux$N_x002e_SAPEvaluador, c)),
-        Linea = unlist(lapply(dataFrameAux$Linea, c)),
-        Area = unlist(lapply(dataFrameAux$Area, c)),
-        fecha = unlist(lapply(dataFrameAux$FechaLevantamiento, c)),
-        esperado = unlist(lapply(dataFrameAux$esperado, c)),
-        obtenido = unlist(lapply(dataFrameAux$obtenido, c)),
-        calificacion=unlist(lapply(dataFrameAux$calificacion, c)),
-        comentarios=unlist(lapply(dataFrameAux$Extra, c)),
+        id = unlist(lapply(dataFrameAux5$ID, c)),
+        TCard = unlist(lapply(dataFrameAux5$Tcard, c)),
+        colaborador= unlist(lapply(dataFrameAux5$colaborador, c)),
+        correo_colaborador=unlist(lapply(dataFrameAux5$CorreoCol, c)),
+        no_SAP_col=unlist(lapply(dataFrameAux5$N_x002e_SAPColaborador, c)),
+        coach = unlist(lapply(dataFrameAux5$Evaluador, c)),
+        correo_coach=unlist(lapply(dataFrameAux5$CorreoCoach, c)),
+        no_SAP_coach=unlist(lapply(dataFrameAux5$N_x002e_SAPEvaluador, c)),
+        Linea = unlist(lapply(dataFrameAux5$Linea, c)),
+        Area = unlist(lapply(dataFrameAux5$Area, c)),
+        fecha = unlist(lapply(dataFrameAux5$FechaLevantamiento, c)),
+        esperado = unlist(lapply(dataFrameAux5$esperado, c)),
+        obtenido = unlist(lapply(dataFrameAux5$obtenido, c)),
+        calificacion=unlist(lapply(dataFrameAux5$calificacion, c)),
+        comentarios = unlist(lapply(
+          dataFrameAux5$Extra[is.null(dataFrameAux5$Extra)] <-
+            "", c
+        ))
       )
-
 }
 
 #call the get_token function

@@ -279,5 +279,4 @@ server <- function(session, input, output) {
         ))
     })
 }
-
 shinyApp(ui, server)
